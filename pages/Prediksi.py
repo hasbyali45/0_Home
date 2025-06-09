@@ -4,7 +4,6 @@ import pandas as pd
 import time
 import os
 import base64
-from joblib import load
 
 # --------------------- Konfigurasi Halaman ---------------------
 st.set_page_config(layout="wide", page_title="Prediksi Potensi TOL", initial_sidebar_state="auto")
@@ -79,9 +78,9 @@ def generate_style(param_name, value, bg_color="#FFF5C2", text_color="blue"):
 
 # --------------------- Load Model ---------------------
 @st.cache_resource
-dump(model, "model_potensiTOL_SMOTE.joblib")
 def load_model():
-    return load("model_potensiTOL_SMOTE.joblib")
+    with open("model_potensiTOL+SMOTE.pkl", "rb") as f:
+        return pickle.load(f)
 model = load_model()
 
 # --------------------- Form Input ---------------------
