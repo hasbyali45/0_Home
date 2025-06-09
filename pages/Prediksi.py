@@ -79,9 +79,9 @@ def generate_style(param_name, value, bg_color="#FFF5C2", text_color="blue"):
 
 # --------------------- Load Model ---------------------
 @st.cache_resource
+dump(model, "model_potensiTOL_SMOTE.joblib")
 def load_model():
     return load("model_potensiTOL_SMOTE.joblib")
-    
 model = load_model()
 
 # --------------------- Form Input ---------------------
